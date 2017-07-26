@@ -1,11 +1,11 @@
-###开始之前，请执行npm install ######
+### 开始之前，请执行npm install ######
 ```
 nstall -g gulp
 
 // 安装到项目里
 npm install --save-dev gulp
 ```
-###gulpfile.js
+### gulpfile.js
 项目根目录中的gulpfile.js，是Gulp的配置文件。
 ```
  const config = require('config');
@@ -20,8 +20,8 @@ gulp.task('image.copy', () => gulp.src(paths.source_image)
     .pipe(gulp.dest(paths.dist_image))
     .pipe($.livereload()));
 ```
-###gulp模块的方法
-*src()
+### gulp模块的方法
+* src()
 输出（Emits）符合所提供的匹配模式（glob）或者匹配模式的数组（array of globs）的文件。 将返回一个 Vinyl files 的 stream 它可以被 piped 到别的插件中。
 ```
 gulp.task('js', function () {
@@ -39,7 +39,7 @@ gulp.task('js', function () {
 4.!js/app.js：除了js/app.js以外的所有文件。
 5.['js/**/*.js', '!js/app.js']
 
-*dest()
+* dest()
 能被 pipe 进来，并且将会写文件。并且重新输出（emits）所有数据，因此你可以将它 pipe 到多个文件夹。如果某文件夹不存在，将会自动创建它。
 ```
 gulp.src('./client/templates/*.jade')
@@ -51,7 +51,7 @@ gulp.src('./client/templates/*.jade')
 dest方法还可以接受第二个参数，表示配置对象。
 1.cwd: 表示基准目录
 2.mode： 表示写入文件的权限默认是0777
-*task()
+* task()
 定义一个使用 Orchestrator 实现的任务（task）。
 ```
 gulp.task('mytask', ['array', 'of', 'task', 'names'], function() {
@@ -117,7 +117,7 @@ gulp.task('two', ['one'], function() {
 gulp.task('default', ['one', 'two']);
 ```
 
-*watch()
+* watch()
 监视文件，并且可以在文件发生改动时候做一些事情。它总会返回一个 EventEmitter 来发射（emit） change 事件。
 ```
 gulp.task('watch', function () {
@@ -139,6 +139,6 @@ watcher对象还包含其他一些方法。
 2.watcher.files()：返回watcher对象监视的文件。
 3.watcher.add(glob)：增加所要监视的文件，它还可以附件第二个参数，表示回调函数。
 4.watcher.remove(filepath)：从watcher对象中移走一个监视的文件。
-###参考链接
-*http://www.gulpjs.com.cn/docs/api/
-*https://www.smashingmagazine.com/2014/06/building-with-gulp/~                                                             
+### 参考链接
+* http://www.gulpjs.com.cn/docs/api/
+* https://www.smashingmagazine.com/2014/06/building-with-gulp/~                                                             
