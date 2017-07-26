@@ -33,11 +33,11 @@ gulp.task('js', function () {
 });
 ```
 参数的写法一般有以下几种形式。
-1.js/app.js：指定确切的文件名。
-2.js/*.js：某个目录所有后缀名为js的文件。
-3.js/**/*.js：某个目录及其所有子目录中的所有后缀名为js的文件。
-4.!js/app.js：除了js/app.js以外的所有文件。
-5.['js/**/*.js', '!js/app.js']
+1. js/app.js：指定确切的文件名。
+2. js/*.js：某个目录所有后缀名为js的文件。
+3. js/**/*.js：某个目录及其所有子目录中的所有后缀名为js的文件。
+4. !js/app.js：除了js/app.js以外的所有文件。
+5. ['js/**/*.js', '!js/app.js']
 
 * dest()
 能被 pipe 进来，并且将会写文件。并且重新输出（emits）所有数据，因此你可以将它 pipe 到多个文件夹。如果某文件夹不存在，将会自动创建它。
@@ -49,8 +49,8 @@ gulp.src('./client/templates/*.jade')
   .pipe(gulp.dest('./build/minified_templates'));
 ```
 dest方法还可以接受第二个参数，表示配置对象。
-1.cwd: 表示基准目录
-2.mode： 表示写入文件的权限默认是0777
+1. cwd: 表示基准目录
+2. mode： 表示写入文件的权限默认是0777
 * task()
 定义一个使用 Orchestrator 实现的任务（task）。
 ```
@@ -59,7 +59,7 @@ gulp.task('mytask', ['array', 'of', 'task', 'names'], function() {
 });
 ```
 参数：它的第一个参数是任务名，第二个参数是任务函数。
-1.异步任务支持：
+1. 异步任务支持：
 接受一个callback
 ```
 // 在 shell 中执行一个命令
@@ -73,7 +73,7 @@ gulp.task('jekyll', function(cb) {
 });
 ```
 
-2.返回一个stream
+2. 返回一个stream
 ```
 gulp.task('somename', function() {
   var stream = gulp.src('client/**/*.js')
@@ -83,7 +83,7 @@ gulp.task('somename', function() {
 });
 ```
 
-3.返回一个promise
+3. 返回一个promise
 ```
 var Q = require('q');
 
@@ -130,15 +130,15 @@ watcher.on('change', function(event) {
 });
 ```
 watch还可以触发的事件
-1.end：回调函数运行完毕时触发。
-2.error：发生错误时触发。
-3.ready：当开始监听文件时触发。
-4.nomatch：没有匹配的监听文件时触发。
+1. end：回调函数运行完毕时触发。
+2. error：发生错误时触发。
+3. ready：当开始监听文件时触发。
+4. nomatch：没有匹配的监听文件时触发。
 watcher对象还包含其他一些方法。
-1.watcher.end()：停止watcher对象，不会再调用任务或回调函数。
-2.watcher.files()：返回watcher对象监视的文件。
-3.watcher.add(glob)：增加所要监视的文件，它还可以附件第二个参数，表示回调函数。
-4.watcher.remove(filepath)：从watcher对象中移走一个监视的文件。
+1. watcher.end()：停止watcher对象，不会再调用任务或回调函数。
+2. watcher.files()：返回watcher对象监视的文件。
+3. watcher.add(glob)：增加所要监视的文件，它还可以附件第二个参数，表示回调函数。
+4. watcher.remove(filepath)：从watcher对象中移走一个监视的文件。
 ### 参考链接
 * http://www.gulpjs.com.cn/docs/api/
 * https://www.smashingmagazine.com/2014/06/building-with-gulp/~                                                             
